@@ -1,0 +1,30 @@
+<html>
+	<head>
+	<script type="text/javascript">
+	var hash={{ htmlhashtag }}
+	var posit={{ postweets }}
+	var negat={{ negtweets }}
+
+	console.log(hash);
+	console.log(postweets);
+	console.log(negtweets);
+
+	document.onLoad(){
+		document.getElementById("who").innerHTML=hash.toString();
+		document.getElementById("pos").innerHTML=posit.toString();
+		document.getElementById("neg").innerHTML=negat.toString();
+	}
+		</script>
+   <body>
+      
+      <form action = "http://localhost:5000/index" method = "post">
+         <p>Enter Name:</p>
+         <p><input type = "text" name = "hasht" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+
+      <h1>HHAHAHAHAA POSITIVE TWEETS ABOUT <p id="who"></p> are <p id="pos"></p> and NEGATIVE TWEETS ARE <p id="neg"></p>
+      </h1>
+
+   </body>
+</html>

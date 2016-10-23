@@ -1,0 +1,75 @@
+
+
+<html>
+	<head>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/front.css') }}">
+	<script type="text/javascript" src="{{ url_for('static',filename='js/script.js') }}"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+
+		<script type="text/javascript">
+
+			var el = document.getElementById('analyze');
+			window.onload=function(){
+			
+			var hash='{{ htmlhashtag }}'
+			var posit={{ postweets }}
+			var negat={{ negtweets }}
+
+			console.log(hash);
+			console.log(posit);
+			console.log(negat);
+			document.getElementById("who").innerHTML=hash;
+			document.getElementById("pos").innerHTML=posit.toString();
+			document.getElementById("neg").innerHTML=negat.toString();
+
+			var pieData = [
+				   {
+				      value: posit,
+				      label: 'Positive',
+				      color: '#36A2EB'
+				   },
+				   {
+				      value : negat,
+				      label: 'Negative',
+				      color: '#FF6384'
+				   }
+				];
+
+				var context = document.getElementById('skills').getContext('2d');
+				var skillsChart = new Chart(context).Pie(pieData);
+		}
+			
+		</script>
+
+		
+	</head>
+	   <body>
+	   		
+	   		
+
+	   		<div class="jumbotron text-center" id="jumbo">
+	   			<h1 id="header"># Hashtag based Sentiment Analyzer</h1>
+	      	</div>  
+
+	      	<h4 id="results" class="text-center">POSITIVE TWEETS ABOUT '<z id="who"></z>' ARE <z id="pos"></z> and NEGATIVE TWEETS ARE <z id="neg"></z></h4>
+
+	      	<canvas id="skills" width="300" height="300" style="display:block;margin-left:auto;margin-right:auto;padding-top:20px;margin-top:50px"></canvas>
+
+	    	<h6 class ="footer">
+	    		<p id="creds">Prateek 1PE13CS112 Rahul 1PE13CS118 Rajan 1PE13CS119 </p>
+	    	</h6>
+	    	
+	   </body>
+</html>

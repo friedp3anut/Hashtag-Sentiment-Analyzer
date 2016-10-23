@@ -1,0 +1,57 @@
+
+
+<html>
+	<head>
+		<link rel="stylesheet" href="front.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript">
+			var el = document.getElementById('analyze');
+			window.onload=function(){
+			document.getElementById("analyze").onclick = function(){functionHide()};
+			document.getElementById("who").innerHTML=hash;
+		document.getElementById("pos").innerHTML=posit.toString();
+		document.getElementById("neg").innerHTML=negat.toString();
+		}
+			function functionHide(){
+					document.getElementById("hideThis").style.display='none';
+					document.getElementById("blah").style.display='block';
+					document.getElementById("loader").style.display='block';
+			}
+		</script>
+
+		<script type="text/javascript">
+	var hash='{{ htmlhashtag }}'
+	var posit={{ postweets }}
+	var negat={{ negtweets }}
+
+	console.log(hash);
+	console.log(posit);
+	console.log(negat);
+
+		</script>
+	</head>
+	   <body>
+	   		
+	   		
+
+	   		<div class="jumbotron text-center" id="jumbo">
+	   			<h1 id="header"># Hashtag based Sentiment Analyzer</h1>
+	      	</div>  
+
+	      	<h1>POSITIVE TWEETS ABOUT <div id="who"></div> are <div id="pos"></div> and NEGATIVE TWEETS ARE <div id="neg"></div></h1>
+
+	      	
+
+	    	<h6 class ="footer">
+	    		<p id="creds">Prateek 1PE13CS112 Rahul 1PE13CS118 Rajan 1PE13CS119 </p>
+	    	</h6>
+	    	
+	   </body>
+</html>
